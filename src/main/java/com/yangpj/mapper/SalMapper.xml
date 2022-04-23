@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yangpj.mapper.SalMapper">
+  <resultMap id="BaseResultMap" type="com.yangpj.model.Sal">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="base_pay" jdbcType="DECIMAL" property="basePay" />
+    <result column="deduction" jdbcType="DECIMAL" property="deduction" />
+    <result column="insurance" jdbcType="DECIMAL" property="insurance" />
+    <result column="acc_fund" jdbcType="DECIMAL" property="accFund" />
+    <result column="per_tax" jdbcType="DECIMAL" property="perTax" />
+    <result column="net_salary" jdbcType="DECIMAL" property="netSalary" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `date`, `name`, base_pay, deduction, insurance, acc_fund, per_tax, net_salary
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sal
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sal
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.yangpj.model.Sal" useGeneratedKeys="true">
+    insert into sal (`date`, `name`, base_pay, 
+      deduction, insurance, acc_fund, 
+      per_tax, net_salary)
+    values (#{date,jdbcType=DATE}, #{name,jdbcType=VARCHAR}, #{basePay,jdbcType=DECIMAL}, 
+      #{deduction,jdbcType=DECIMAL}, #{insurance,jdbcType=DECIMAL}, #{accFund,jdbcType=DECIMAL}, 
+      #{perTax,jdbcType=DECIMAL}, #{netSalary,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.yangpj.model.Sal" useGeneratedKeys="true">
+    insert into sal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="date != null">
+        `date`,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="basePay != null">
+        base_pay,
+      </if>
+      <if test="deduction != null">
+        deduction,
+      </if>
+      <if test="insurance != null">
+        insurance,
+      </if>
+      <if test="accFund != null">
+        acc_fund,
+      </if>
+      <if test="perTax != null">
+        per_tax,
+      </if>
+      <if test="netSalary != null">
+        net_salary,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="date != null">
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="basePay != null">
+        #{basePay,jdbcType=DECIMAL},
+      </if>
+      <if test="deduction != null">
+        #{deduction,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null">
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="accFund != null">
+        #{accFund,jdbcType=DECIMAL},
+      </if>
+      <if test="perTax != null">
+        #{perTax,jdbcType=DECIMAL},
+      </if>
+      <if test="netSalary != null">
+        #{netSalary,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.Sal">
+    update sal
+    <set>
+      <if test="date != null">
+        `date` = #{date,jdbcType=DATE},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="basePay != null">
+        base_pay = #{basePay,jdbcType=DECIMAL},
+      </if>
+      <if test="deduction != null">
+        deduction = #{deduction,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null">
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="accFund != null">
+        acc_fund = #{accFund,jdbcType=DECIMAL},
+      </if>
+      <if test="perTax != null">
+        per_tax = #{perTax,jdbcType=DECIMAL},
+      </if>
+      <if test="netSalary != null">
+        net_salary = #{netSalary,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.Sal">
+    update sal
+    set `date` = #{date,jdbcType=DATE},
+      `name` = #{name,jdbcType=VARCHAR},
+      base_pay = #{basePay,jdbcType=DECIMAL},
+      deduction = #{deduction,jdbcType=DECIMAL},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      acc_fund = #{accFund,jdbcType=DECIMAL},
+      per_tax = #{perTax,jdbcType=DECIMAL},
+      net_salary = #{netSalary,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

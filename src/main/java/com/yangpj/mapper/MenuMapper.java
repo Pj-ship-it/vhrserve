@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * @author pj
  */
+@Mapper
 public interface MenuMapper {
     int deleteByPrimaryKey(Integer id);
 

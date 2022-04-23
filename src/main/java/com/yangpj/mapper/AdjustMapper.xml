@@ -1,91 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yangpj.mapper.MsgContentMapper">
-    <resultMap id="BaseResultMap" type="com.yangpj.model.MsgContent">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="name" jdbcType="VARCHAR" property="name" />
-        <result column="id_card" jdbcType="CHAR" property="idCard" />
-        <result column="eid" jdbcType="VARCHAR" property="eid" />
-        <result column="change_property" jdbcType="VARCHAR" property="changeProperty" />
-        <result column="origin_post" jdbcType="VARCHAR" property="originPost" />
-        <result column="new_post" jdbcType="VARCHAR" property="newPost" />
-        <result column="adjust_reason" jdbcType="VARCHAR" property="adjustReason" />
-        <result column="before_salary" jdbcType="DECIMAL" property="beforeSalary" />
-        <result column="after_salary" jdbcType="DECIMAL" property="afterSalary" />
-        <result column="effect_time" jdbcType="DATETIME" property="effectTime" />
-    </resultMap>
-    <sql id="Base_Column_List">
-    id, name, id_card, eid, change_property, origin_post, new_post, adjust_reason, before_salary, after_salary, effect_time
+<mapper namespace="com.yangpj.mapper.AdjustMapper">
+  <resultMap id="BaseResultMap" type="com.yangpj.model.Adjust">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="id_card" jdbcType="CHAR" property="idCard" />
+    <result column="eid" jdbcType="VARCHAR" property="eid" />
+    <result column="change_property" jdbcType="VARCHAR" property="changeProperty" />
+    <result column="origin_post" jdbcType="VARCHAR" property="originPost" />
+    <result column="new_post" jdbcType="VARCHAR" property="newPost" />
+    <result column="adjust_reason" jdbcType="VARCHAR" property="adjustReason" />
+    <result column="before_salary" jdbcType="DECIMAL" property="beforeSalary" />
+    <result column="after_salary" jdbcType="DECIMAL" property="afterSalary" />
+    <result column="effect_time" jdbcType="TIMESTAMP" property="effectTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, id_card, eid, change_property, origin_post, new_post, adjust_reason, 
+    before_salary, after_salary, effect_time
   </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List" />
-        from adjust
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <select id="getByPage" resultMap="BaseResultMap">
+    select
+    id, `name`, id_card, eid, change_property, origin_post, new_post, adjust_reason,
+    before_salary, after_salary, effect_time
+     from adjust a
+    <if test="beginDateScope !=null">
+      and a.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
+    </if>
+    <if test="page !=null and size!=null">
+      limit #{page},#{size}
+    </if>
+  </select>
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from adjust
+  </select>
+  <select id="getTotal" resultType="java.lang.Long">
+    select count(*) from adjust a
+    <where>
+      <if test="adjust != null">
+        <if test="beginDateScope !=null">
+          and a.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
+        </if>
+      </if>
+    </where>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from adjust
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from adjust
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.yangpj.model.Adjust">
-    insert into adjust (id, name, id_card, eid, change_property, origin_post, new_post,
-    adjust_reason, before_salary, after_salary, effect_time)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{id_card,jdbcType=CHAR},
-    #{eid,jdbcType=VARCHAR}, #{change_property,jdbcType=VARCHAR}, #{origin_post,jdbcType=VARCHAR},
-    #{new_post,jdbcType=VARCHAR}, #{adjust_reason,jdbcType=VARCHAR}, #{before_salary,jdbcType=DECIMAL},
-    #{after_salary,jdbcType=DECIMAL}, #{effect_time,jdbcType=DATE})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.yangpj.model.Adjust" useGeneratedKeys="true">
+    insert into adjust (`name`, id_card, eid, 
+      change_property, origin_post, new_post, 
+      adjust_reason, before_salary, after_salary, 
+      effect_time)
+    values (#{name,jdbcType=VARCHAR}, #{idCard,jdbcType=CHAR}, #{eid,jdbcType=VARCHAR}, 
+      #{changeProperty,jdbcType=VARCHAR}, #{originPost,jdbcType=VARCHAR}, #{newPost,jdbcType=VARCHAR}, 
+      #{adjustReason,jdbcType=VARCHAR}, #{beforeSalary,jdbcType=DECIMAL}, #{afterSalary,jdbcType=DECIMAL}, 
+      #{effectTime,jdbcType=TIMESTAMP})
   </insert>
-    <insert id="insertSelective" parameterType="com.yangpj.model.Adjust">
-        insert into adjust
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="title != null">
-                title,
-            </if>
-            <if test="message != null">
-                message,
-            </if>
-            <if test="createdate != null">
-                createDate,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
-            <if test="title != null">
-                #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="message != null">
-                #{message,jdbcType=VARCHAR},
-            </if>
-            <if test="createdate != null">
-                #{createdate,jdbcType=TIMESTAMP},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MsgContent">
-        update msgcontent
-        <set>
-            <if test="title != null">
-                title = #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="message != null">
-                message = #{message,jdbcType=VARCHAR},
-            </if>
-            <if test="createdate != null">
-                createDate = #{createdate,jdbcType=TIMESTAMP},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MsgContent">
-    update msgcontent
-    set title = #{title,jdbcType=VARCHAR},
-      message = #{message,jdbcType=VARCHAR},
-      createDate = #{createdate,jdbcType=TIMESTAMP}
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.yangpj.model.Adjust" useGeneratedKeys="true">
+    insert into adjust
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="idCard != null">
+        id_card,
+      </if>
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="changeProperty != null">
+        change_property,
+      </if>
+      <if test="originPost != null">
+        origin_post,
+      </if>
+      <if test="newPost != null">
+        new_post,
+      </if>
+      <if test="adjustReason != null">
+        adjust_reason,
+      </if>
+      <if test="beforeSalary != null">
+        before_salary,
+      </if>
+      <if test="afterSalary != null">
+        after_salary,
+      </if>
+      <if test="effectTime != null">
+        effect_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=CHAR},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="changeProperty != null">
+        #{changeProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="originPost != null">
+        #{originPost,jdbcType=VARCHAR},
+      </if>
+      <if test="newPost != null">
+        #{newPost,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustReason != null">
+        #{adjustReason,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeSalary != null">
+        #{beforeSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="afterSalary != null">
+        #{afterSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="effectTime != null">
+        #{effectTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.Adjust">
+    update adjust
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        id_card = #{idCard,jdbcType=CHAR},
+      </if>
+      <if test="eid != null">
+        eid = #{eid,jdbcType=VARCHAR},
+      </if>
+      <if test="changeProperty != null">
+        change_property = #{changeProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="originPost != null">
+        origin_post = #{originPost,jdbcType=VARCHAR},
+      </if>
+      <if test="newPost != null">
+        new_post = #{newPost,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustReason != null">
+        adjust_reason = #{adjustReason,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeSalary != null">
+        before_salary = #{beforeSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="afterSalary != null">
+        after_salary = #{afterSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="effectTime != null">
+        effect_time = #{effectTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.Adjust">
+    update adjust
+    set `name` = #{name,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=CHAR},
+      eid = #{eid,jdbcType=VARCHAR},
+      change_property = #{changeProperty,jdbcType=VARCHAR},
+      origin_post = #{originPost,jdbcType=VARCHAR},
+      new_post = #{newPost,jdbcType=VARCHAR},
+      adjust_reason = #{adjustReason,jdbcType=VARCHAR},
+      before_salary = #{beforeSalary,jdbcType=DECIMAL},
+      after_salary = #{afterSalary,jdbcType=DECIMAL},
+      effect_time = #{effectTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
