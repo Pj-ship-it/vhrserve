@@ -1,0 +1,1962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yangpj.mapper.MeetingRoomMapper">
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.MeetingRoom">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, place, capacity, scale
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meetingroom
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom (id, name, place, 
+      capacity, scale)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{place,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=INTEGER}, #{scale,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.MeetingRoom">
+    insert into meetingroom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MeetingRoom">
+    update meetingroom
+    set name = #{name,jdbcType=VARCHAR},
+      place = #{place,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=INTEGER},
+      scale = #{scale,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

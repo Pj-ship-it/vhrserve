@@ -1,0 +1,3040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yangpj.mapper.TimeSheetMapper">
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.yangpj.model.TimeSheet">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="work_days" jdbcType="INTEGER" property="workDays" />
+    <result column="normal_clockin" jdbcType="INTEGER" property="normalClockin" />
+    <result column="late_days" jdbcType="INTEGER" property="lateDays" />
+    <result column="absent_days" jdbcType="INTEGER" property="absentDays" />
+    <result column="early_days" jdbcType="INTEGER" property="earlyDays" />
+    <result column="leave_nums" jdbcType="INTEGER" property="leaveNums" />
+    <result column="makeup_nums" jdbcType="INTEGER" property="makeupNums" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
+    makeup_nums
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from timesheet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet (id, name, work_days, 
+      normal_clockin, late_days, absent_days, 
+      early_days, leave_nums, makeup_nums
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{workDays,jdbcType=INTEGER}, 
+      #{normalClockin,jdbcType=INTEGER}, #{lateDays,jdbcType=INTEGER}, #{absentDays,jdbcType=INTEGER}, 
+      #{earlyDays,jdbcType=INTEGER}, #{leaveNums,jdbcType=INTEGER}, #{makeupNums,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yangpj.model.TimeSheet">
+    insert into timesheet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="workDays != null">
+        work_days,
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin,
+      </if>
+      <if test="lateDays != null">
+        late_days,
+      </if>
+      <if test="absentDays != null">
+        absent_days,
+      </if>
+      <if test="earlyDays != null">
+        early_days,
+      </if>
+      <if test="leaveNums != null">
+        leave_nums,
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="workDays != null">
+        work_days = #{workDays,jdbcType=INTEGER},
+      </if>
+      <if test="normalClockin != null">
+        normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      </if>
+      <if test="lateDays != null">
+        late_days = #{lateDays,jdbcType=INTEGER},
+      </if>
+      <if test="absentDays != null">
+        absent_days = #{absentDays,jdbcType=INTEGER},
+      </if>
+      <if test="earlyDays != null">
+        early_days = #{earlyDays,jdbcType=INTEGER},
+      </if>
+      <if test="leaveNums != null">
+        leave_nums = #{leaveNums,jdbcType=INTEGER},
+      </if>
+      <if test="makeupNums != null">
+        makeup_nums = #{makeupNums,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yangpj.model.TimeSheet">
+    update timesheet
+    set name = #{name,jdbcType=VARCHAR},
+      work_days = #{workDays,jdbcType=INTEGER},
+      normal_clockin = #{normalClockin,jdbcType=INTEGER},
+      late_days = #{lateDays,jdbcType=INTEGER},
+      absent_days = #{absentDays,jdbcType=INTEGER},
+      early_days = #{earlyDays,jdbcType=INTEGER},
+      leave_nums = #{leaveNums,jdbcType=INTEGER},
+      makeup_nums = #{makeupNums,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
