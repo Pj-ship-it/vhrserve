@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yangpj.mapper.MsgContentMapper">
+    <resultMap id="BaseResultMap" type="com.yangpj.model.MsgContent">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="id_card" jdbcType="CHAR" property="idCard" />
+        <result column="eid" jdbcType="VARCHAR" property="eid" />
+        <result column="change_property" jdbcType="VARCHAR" property="changeProperty" />
+        <result column="origin_post" jdbcType="VARCHAR" property="originPost" />
+        <result column="new_post" jdbcType="VARCHAR" property="newPost" />
+        <result column="adjust_reason" jdbcType="VARCHAR" property="adjustReason" />
+        <result column="before_salary" jdbcType="DECIMAL" property="beforeSalary" />
+        <result column="after_salary" jdbcType="DECIMAL" property="afterSalary" />
+        <result column="effect_time" jdbcType="DATETIME" property="effectTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, id_card, eid, change_property, origin_post, new_post, adjust_reason, before_salary, after_salary, effect_time
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from adjust
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from adjust
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.yangpj.model.Adjust">
+    insert into adjust (id, name, id_card, eid, change_property, origin_post, new_post,
+    adjust_reason, before_salary, after_salary, effect_time)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{id_card,jdbcType=CHAR},
+    #{eid,jdbcType=VARCHAR}, #{change_property,jdbcType=VARCHAR}, #{origin_post,jdbcType=VARCHAR},
+    #{new_post,jdbcType=VARCHAR}, #{adjust_reason,jdbcType=VARCHAR}, #{before_salary,jdbcType=DECIMAL},
+    #{after_salary,jdbcType=DECIMAL}, #{effect_time,jdbcType=DATE})
+  </insert>
+    <insert id="insertSelective" parameterType="com.yangpj.model.Adjust">
+        insert into adjust
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="message != null">
+                message,
+            </if>
+            <if test="createdate != null">
+                createDate,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="message != null">
+                #{message,jdbcType=VARCHAR},
+            </if>
+            <if test="createdate != null">
+                #{createdate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.yangpj.model.MsgContent">
+        update msgcontent
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="message != null">
+                message = #{message,jdbcType=VARCHAR},
+            </if>
+            <if test="createdate != null">
+                createDate = #{createdate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yangpj.model.MsgContent">
+    update msgcontent
+    set title = #{title,jdbcType=VARCHAR},
+      message = #{message,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
