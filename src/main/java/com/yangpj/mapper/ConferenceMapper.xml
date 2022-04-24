@@ -20,6 +20,9 @@
     from conference
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from conference
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from conference
     where id = #{id,jdbcType=INTEGER}

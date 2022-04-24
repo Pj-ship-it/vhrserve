@@ -46,7 +46,6 @@ public class AdjustService {
     }
 
     public Integer addAdjust(Adjust adjust) {
-        adjust.setEffectTime(new Date());
         return adjustMapper.insert(adjust);
     }
 

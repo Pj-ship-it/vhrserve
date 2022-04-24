@@ -15,7 +15,18 @@ import java.util.List;
  * @author pj
  */
 @Repository
-public interface AdjustMapper extends MyBatisBaseMapper<Adjust, Integer> {
+public interface AdjustMapper  {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Adjust record);
+
+    int insertSelective(Adjust record);
+
+    Adjust selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Adjust record);
+
+    int updateByPrimaryKey(Adjust record);
     List<Adjust> getByPage(@Param("page") Integer page, @Param("size") Integer size, @Param("adjust") Adjust adjust, @Param("beginDateScope") Date[] beginDateScope);
 
     Long getTotal(@Param("adjust") Adjust adjust,@Param("beginDateScope") Date[] beginDateScope);

@@ -1,5 +1,7 @@
 package com.yangpj.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -43,6 +45,7 @@ public class Train implements Serializable {
     /**
      * 分享时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date shareTime;
 
     private static final long serialVersionUID = 1L;

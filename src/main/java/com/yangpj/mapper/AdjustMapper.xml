@@ -12,16 +12,15 @@
     <result column="adjust_reason" jdbcType="VARCHAR" property="adjustReason" />
     <result column="before_salary" jdbcType="DECIMAL" property="beforeSalary" />
     <result column="after_salary" jdbcType="DECIMAL" property="afterSalary" />
-    <result column="effect_time" jdbcType="TIMESTAMP" property="effectTime" />
   </resultMap>
   <sql id="Base_Column_List">
     id, `name`, id_card, eid, change_property, origin_post, new_post, adjust_reason, 
-    before_salary, after_salary, effect_time
+    before_salary, after_salary
   </sql>
   <select id="getByPage" resultMap="BaseResultMap">
     select
     id, `name`, id_card, eid, change_property, origin_post, new_post, adjust_reason,
-    before_salary, after_salary, effect_time
+    before_salary, after_salary
      from adjust a
     <if test="beginDateScope !=null">
       and a.beginDate between #{beginDateScope[0]} and #{beginDateScope[1]}
@@ -56,12 +55,10 @@
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.yangpj.model.Adjust" useGeneratedKeys="true">
     insert into adjust (`name`, id_card, eid, 
       change_property, origin_post, new_post, 
-      adjust_reason, before_salary, after_salary, 
-      effect_time)
+      adjust_reason, before_salary, after_salary)
     values (#{name,jdbcType=VARCHAR}, #{idCard,jdbcType=CHAR}, #{eid,jdbcType=VARCHAR}, 
       #{changeProperty,jdbcType=VARCHAR}, #{originPost,jdbcType=VARCHAR}, #{newPost,jdbcType=VARCHAR}, 
-      #{adjustReason,jdbcType=VARCHAR}, #{beforeSalary,jdbcType=DECIMAL}, #{afterSalary,jdbcType=DECIMAL}, 
-      #{effectTime,jdbcType=TIMESTAMP})
+      #{adjustReason,jdbcType=VARCHAR}, #{beforeSalary,jdbcType=DECIMAL}, #{afterSalary,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.yangpj.model.Adjust" useGeneratedKeys="true">
     insert into adjust
@@ -93,9 +90,6 @@
       <if test="afterSalary != null">
         after_salary,
       </if>
-      <if test="effectTime != null">
-        effect_time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -124,9 +118,6 @@
       </if>
       <if test="afterSalary != null">
         #{afterSalary,jdbcType=DECIMAL},
-      </if>
-      <if test="effectTime != null">
-        #{effectTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -160,9 +151,6 @@
       <if test="afterSalary != null">
         after_salary = #{afterSalary,jdbcType=DECIMAL},
       </if>
-      <if test="effectTime != null">
-        effect_time = #{effectTime,jdbcType=TIMESTAMP},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -176,8 +164,7 @@
       new_post = #{newPost,jdbcType=VARCHAR},
       adjust_reason = #{adjustReason,jdbcType=VARCHAR},
       before_salary = #{beforeSalary,jdbcType=DECIMAL},
-      after_salary = #{afterSalary,jdbcType=DECIMAL},
-      effect_time = #{effectTime,jdbcType=TIMESTAMP}
+      after_salary = #{afterSalary,jdbcType=DECIMAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -57,6 +57,8 @@ public class AdjustController {
         if (adjustService.updateById(adjust) == 1) {
             return RespBean.ok("更新成功！");
         }
+        System.out.println("11111111");
+        System.out.println(adjust);
         return RespBean.error("更新失败！");
     }
 }

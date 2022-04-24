@@ -1,5 +1,9 @@
 package com.yangpj.model;
 
+
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -8,7 +12,7 @@ import java.util.Date;
  * @author 
  * 
  */
-public class Adjust implements Serializable {
+public class Adjust {
     private Integer id;
 
     /**
@@ -56,12 +60,6 @@ public class Adjust implements Serializable {
      */
     private BigDecimal afterSalary;
 
-    /**
-     * 生效时间
-     */
-    private Date effectTime;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -143,13 +141,6 @@ public class Adjust implements Serializable {
         this.afterSalary = afterSalary;
     }
 
-    public Date getEffectTime() {
-        return effectTime;
-    }
-
-    public void setEffectTime(Date effectTime) {
-        this.effectTime = effectTime;
-    }
 
     @Override
     public boolean equals(Object that) {
@@ -172,8 +163,7 @@ public class Adjust implements Serializable {
             && (this.getNewPost() == null ? other.getNewPost() == null : this.getNewPost().equals(other.getNewPost()))
             && (this.getAdjustReason() == null ? other.getAdjustReason() == null : this.getAdjustReason().equals(other.getAdjustReason()))
             && (this.getBeforeSalary() == null ? other.getBeforeSalary() == null : this.getBeforeSalary().equals(other.getBeforeSalary()))
-            && (this.getAfterSalary() == null ? other.getAfterSalary() == null : this.getAfterSalary().equals(other.getAfterSalary()))
-            && (this.getEffectTime() == null ? other.getEffectTime() == null : this.getEffectTime().equals(other.getEffectTime()));
+            && (this.getAfterSalary() == null ? other.getAfterSalary() == null : this.getAfterSalary().equals(other.getAfterSalary()));
     }
 
     @Override
@@ -190,7 +180,6 @@ public class Adjust implements Serializable {
         result = prime * result + ((getAdjustReason() == null) ? 0 : getAdjustReason().hashCode());
         result = prime * result + ((getBeforeSalary() == null) ? 0 : getBeforeSalary().hashCode());
         result = prime * result + ((getAfterSalary() == null) ? 0 : getAfterSalary().hashCode());
-        result = prime * result + ((getEffectTime() == null) ? 0 : getEffectTime().hashCode());
         return result;
     }
 
@@ -210,8 +199,6 @@ public class Adjust implements Serializable {
         sb.append(", adjustReason=").append(adjustReason);
         sb.append(", beforeSalary=").append(beforeSalary);
         sb.append(", afterSalary=").append(afterSalary);
-        sb.append(", effectTime=").append(effectTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }
