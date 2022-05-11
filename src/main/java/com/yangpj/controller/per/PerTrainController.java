@@ -15,8 +15,7 @@ import java.util.List;
  * @Author pj
  * @create 2022/1/20 22:02
  */
-@RestController
-@RequestMapping("/personnel/train")
+
 public class PerTrainController {
     private final EmployeeTrainService employeeTrainService;
 

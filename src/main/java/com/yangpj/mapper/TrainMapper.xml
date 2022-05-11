@@ -14,6 +14,9 @@
   <sql id="Base_Column_List">
     id, `name`, participants, theme, lecturer, content, place, share_time
   </sql>
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from train
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

@@ -1,5 +1,8 @@
 package com.yangpj.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -9,11 +12,13 @@ import java.util.Date;
  * 
  */
 public class Sal implements Serializable {
+    @TableId
     private Integer id;
 
     /**
      * 日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     private Date date;
 
     /**

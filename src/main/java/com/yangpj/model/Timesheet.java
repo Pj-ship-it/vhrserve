@@ -1,5 +1,7 @@
 package com.yangpj.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * 
  */
 public class Timesheet implements Serializable {
+    @TableId
     private Integer id;
 
     /**

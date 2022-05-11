@@ -2,6 +2,7 @@ package com.yangpj.model;
 
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
@@ -12,7 +13,8 @@ import java.util.Date;
  * @author 
  * 
  */
-public class Adjust {
+public class Adjust{
+    @TableId
     private Integer id;
 
     /**

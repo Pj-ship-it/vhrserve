@@ -16,6 +16,9 @@
     id, `name`, work_days, normal_clockin, late_days, absent_days, early_days, leave_nums, 
     makeup_nums
   </sql>
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from timesheet
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

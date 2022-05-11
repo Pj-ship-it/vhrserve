@@ -1,5 +1,6 @@
 package com.yangpj.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import java.util.Date;
  * 
  */
 public class Train implements Serializable {
+    @TableId
     private Integer id;
 
     /**

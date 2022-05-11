@@ -11,6 +11,9 @@
   <sql id="Base_Column_List">
     id, `name`, place, capacity, `scale`
   </sql>
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from meetingroom
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
